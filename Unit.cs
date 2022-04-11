@@ -5,7 +5,7 @@ using System.Text;
 
 namespace assign2
 {
-    public class Unit
+    class Unit
     {
         public string UnitCode { get; set; } // e.g. KIT206
         public string UnitTitle { get; set; } // e.g. Software Design & Development
