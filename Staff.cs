@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace assign2
 {
 	//enum for selecting title
-	public enum Title { Mr, Mrs, Ms, Mx, Dr }
-    //enum for selecting campus
-    public enum Campus { Hobart, Launceston }
-    // enum for staff category
-    public enum Category { Academic, Technical, Admin, Casual }
+public enum Title { Mr, Mrs, Ms, Mx, Dr }
+	//enum for selecting campus
+public enum Campus { Hobart, Launceston }
+	// enum for staff category
+public enum Category { Academic, Technical, Admin, Casual }
 
     class Staff // staff class for creating Staff objects
     {
