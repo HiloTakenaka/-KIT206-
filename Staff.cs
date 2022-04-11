@@ -13,7 +13,7 @@ public enum Campus { Hobart, Launceston }
 	// enum for staff category
 public enum Category { Academic, Technical, Admin, Casual }
 
-    class Staff // staff class for creating Staff objects
+    public class Staff // staff class for creating Staff objects
     {
         public int ID { get; set; }
         public Title Title { get; set; }
