@@ -6,16 +6,13 @@
 
     namespace assign2
     {
-        //enum for selecting title
+        //public variables
         public int staffID;
         public enum Day { Mon, Tues, Wed, Thurs, Fri }
         public int startHour;
         public int endHour;
-        //enum for selecting campus
-    
-        // enum for staff category
 
-        public class Consultation // Consultation Details for 
+        public class Consultation // Consultation Details 
         {
             public int staffID{ get; set; }
             public enum Day { get; set; }
