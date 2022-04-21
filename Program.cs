@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 
-namespace DBTestOnAlacritas
+namespace assign2
 {
     class Program
     {
@@ -173,5 +174,13 @@ namespace DBTestOnAlacritas
             }
             return count;
         }
+
+        /*public void changeUnitCoord(int id, Unit x){
+            bool has = db.Any(Staff=>Staff.id == id);
+            if (has == true){
+                Console.WriteLine("!!ID MATCH!!");
+                //command.Commandtext
+            }
+        }*/
     }
 }
