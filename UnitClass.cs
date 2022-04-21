@@ -48,7 +48,7 @@ namespace assign2
                 case Day.W:
                     return "Wednesday";
                 case Day.Th:
-                    return "Wednesday";
+                    return "Thursday";
                 case Day.F:
                     return "Friday";
                 default:
