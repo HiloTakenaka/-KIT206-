@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using MySql.Data.MySqlClient;
+using System.Threading.Tasks;
 using System.Data.SqlClient;
 
 namespace assign2
@@ -40,24 +41,23 @@ namespace assign2
         {
             Console.WriteLine("testing has begun");
 
-            MySqlConnection demo = GetConnection();
-
-            int count = demo.GetNumberOfRecords();
+            MySqlConnection conn = GetConnection();
+            int count = GetNumberOfRecords();
             Console.WriteLine("Number of units records: {0}", count);
             Console.WriteLine();
             Console.WriteLine("Names from units table:");
-            demo.ReadData();
+            ReadData();
             Console.WriteLine();
-            demo.AddData();
+            AddData();
             Console.WriteLine("Names read into a DataSet (should be the same as above):");
-            demo.ReadIntoDataSet();
+            ReadIntoDataSet();
             Console.ReadLine();
         }
 
         /*
          * Using the ExecuteReader method to select from a single table
          */
-        public void ReadData()
+        public static void ReadData()
         {
             MySqlDataReader rdr = null;
 
@@ -98,7 +98,7 @@ namespace assign2
         /*
          * Using the ExecuteReader method to add data into a single table
          */
-        public void AddData()
+        public static void AddData()
         {
 
             try
@@ -107,7 +107,7 @@ namespace assign2
                 conn.Open();
 
                 // 1. Instantiate a new command with a query and connection
-                MySqlCommand cmd = new MySqlCommand("insert into unit(code, title, coordinator) values ('KIT401', 'Research Methods','123465')", conn);
+                MySqlCommand cmd = new MySqlCommand("insert into unit(code, title, coordinator) values ('KIT203', 'Computational Science','123465')", conn);
 
                 // 2. Call Execute reader to get query results
                 cmd.ExecuteNonQuery();
@@ -130,7 +130,7 @@ namespace assign2
         /*
          * Using the ExecuteReader method to select from a single table
          */
-        public void ReadIntoDataSet()
+        public static void ReadIntoDataSet()
         {
             try
             {
@@ -160,7 +160,7 @@ namespace assign2
          * Using the ExecuteScalar method
          * returns number of records
          */
-        public int GetNumberOfRecords()
+        public static int GetNumberOfRecords()
         {
             int count = -1;
             try
