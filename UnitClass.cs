@@ -52,7 +52,7 @@ namespace assign2
                 case Day.F:
                     return "Friday";
                 default:
-                    return "Weekday not selected.";
+                    return "Weekday has not been selected.";
             }
         }
 
