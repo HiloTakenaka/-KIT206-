@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace assign2
 {
-    class Program
+    abstract class Program
     {
         //Note that ordinarily these would (1) be stored in a settings file and (2) have some basic encryption applied
         private const string db = "hris";
@@ -16,22 +16,31 @@ namespace assign2
         private const string pass = "group8a";
         private const string server = "alacritas.cis.utas.edu.au";
 
-        private MySqlConnection conn;
+        private static MySqlConnection conn = null;
 
-        public Program()
+        public static T ParseEnum<T>(string value)
         {
-            /*
+            return (T)Enum.Parse(typeof(T), value);
+        }
+
+        private static MySqlConnection GetConnection()
+        {
+            if (conn == null)
+	        {
+                /*
              * Create the connection object (does not actually make the connection yet)
              * Note that the RAP case study database has the same values for its name, user name and password (to keep things simple)
              */
             string connectionString = String.Format("Database={0};Data Source={1};User Id={2};Password={3}", db, server, user, pass);
             conn = new MySqlConnection(connectionString);
+	        }
+            return conn;
         }
         static void Main(string[] args)
         {
             Console.WriteLine("testing has begun");
 
-            Program demo = new Program();
+            MySqlConnection demo = GetConnection();
 
             int count = demo.GetNumberOfRecords();
             Console.WriteLine("Number of units records: {0}", count);
@@ -177,7 +186,13 @@ namespace assign2
             return count;
         }
 
+        /*
+         * Target unit and change it's coordinator
+         */
         /*public void changeUnitCoord(int id, Unit x){
+
+            //conn.open;
+
             bool has = db.Any(Staff=>Staff.id == id);
             if (has == true){
                 Console.WriteLine("!!ID MATCH!!");

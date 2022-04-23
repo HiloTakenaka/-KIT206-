@@ -1,0 +1,5 @@
+C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\TheThing-KIT206-.csproj.AssemblyReference.cache
+C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\TheThing-KIT206-.csproj.SuggestedBindingRedirects.cache
+C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\TheThing-KIT206-.csproj.CoreCompileInputs.cache
+C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\ConsoleApplication.pdb
