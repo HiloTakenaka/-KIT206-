@@ -37,6 +37,11 @@ namespace assign2
 	        }
             return conn;
         }
+
+        /*
+         * !!PROGRAM WILL NOT RUN IF ADDDATA TEST COMMAND IS ADDING A PRE-EXISTING UNIT!!
+         */
+
         static void Main(string[] args)
         {
             Console.WriteLine("testing has begun");
@@ -107,7 +112,7 @@ namespace assign2
                 conn.Open();
 
                 // 1. Instantiate a new command with a query and connection
-                MySqlCommand cmd = new MySqlCommand("insert into unit(code, title, coordinator) values ('KIT203', 'Computational Science','123465')", conn);
+                MySqlCommand cmd = new MySqlCommand("insert into unit(code, title, coordinator) values ('KIT111', 'Networking','123465')", conn);
 
                 // 2. Call Execute reader to get query results
                 cmd.ExecuteNonQuery();
@@ -142,7 +147,7 @@ namespace assign2
                 {
                     //Again illustrating that indexer (based on column name) gives access to whatever data
                     //type was obtained from a given column, but can call ToString() on an entry if needed.
-                    Console.WriteLine("Name: {0}{1}", row["code"], row["title"]);
+                    Console.WriteLine("Name: {0} {1}", row["code"], row["title"]);
                 }
             }
             finally
