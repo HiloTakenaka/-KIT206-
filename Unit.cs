@@ -14,7 +14,7 @@ namespace assign2
         // constructor for returning full unit string
         public override string ToString()
         { 
-            return $"{Code} {Title}";
+            return $"{UnitCode} {UnitTitle}";
         }
     }
 }
