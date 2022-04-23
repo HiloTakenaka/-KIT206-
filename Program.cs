@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 
@@ -51,18 +50,21 @@ namespace assign2
          */
         public void ReadData()
         {
-            conn = SqlConnection;
             MySqlDataReader rdr = null;
 
             try
             {
+                // Open the connection
+                conn.Open();
 
-                conn.Open(); // opens a connection
+                // 1. Instantiate a new command with a query and connection
+                MySqlCommand cmd = new MySqlCommand("select code, title from unit", conn);
 
-                MySqlCommand cmd = new MySqlCommand("select code, title from unit", conn); // 1. Instantiate a new command with a query and connection
-                rdr = cmd.ExecuteReader(); // 2. Call Execute reader to get query results
+                // 2. Call Execute reader to get query results
+                rdr = cmd.ExecuteReader();
 
-                while (rdr.Read()) // print the CategoryName of each record
+                // print the CategoryName of each record
+                while (rdr.Read())
                 {
                     //This illustrates how the raw data can be obtained using an indexer [] or a particular data type can be obtained using a GetTYPENAME() method.
                     Console.WriteLine("{0} {1}", rdr[0], rdr[1]);
