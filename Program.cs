@@ -160,6 +160,38 @@ namespace assign2
             }
         }
 
+	    /*
+	    public void addConsultation{
+		        
+			Staff staffCheck;
+			Day consulDay;
+			int staffStart = 0;
+			int staffEnd = 0;
+			int consulStart = 0;
+			int consulEnd = 0;
+			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
+			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
+			classStartHour = MySqlCommand(@"SELECT startHour FROM table_name WHERE Staff = selectStaff AND Day = selectDay");
+			classEndHour = MySqlCommand(@"SELECT Staff FROM table_name WHERE Staff = selectStaff AND Day = selectDay");
+			Console.WriteLine("Please Enter the Staff member you wish to consult");
+			staffCheck = Console.ReadLine();
+			selectStaff.ExecuteScalar();
+			Console.WriteLine("Please Enter the Day of consultation");
+			consulDay = Console.ReadLine();
+			selectDay.ExecuteScalar();
+			classStartHour.ExecuteScalar();
+			classEndHour.ExecuteScalar();
+			Console.WriteLine("Please Enter the starting hour of the consultation");
+			consulStart = Console.ReadLine();
+			Console.WriteLine("Please Enter the end hour of the consultation");
+			consulEnd = Console.ReadLine();
+			if (classStartHour > consulEnd || classEndHour < consulStart){
+			(Add Consultation)
+			}
+		}
+	    
+	    
+	    */
 
         /*
          * Using the ExecuteScalar method
