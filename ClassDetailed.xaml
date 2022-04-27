@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="KIT206.ClassDetailed"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KIT206"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="MainGrid" Background="#FFDADADA">
+        <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="143" Margin="10,14,0,0" FontSize="18"><Run Language="en-au" Text="HRIS Database"/><LineBreak/><Run Language="en-au"/></TextBlock>
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="540,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click" Visibility="Visible"/>
+        <Button x:Name="Units" Content="Units" HorizontalAlignment="Left" Margin="625,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click"/>
+        <Button x:Name="Staff" Content="Staff" HorizontalAlignment="Left" Margin="710,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click"/>
+        <Grid x:Name="detailedCode" Margin="0,62,0,340" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Margin="20,12,20,6" TextWrapping="Wrap" Text="Unit Code:" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="detailedCode_Copy" Margin="0,115,0,291" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Margin="20,10,20,8" TextWrapping="Wrap" Text="View:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button Grid.Column="1" Content="Tutorial" HorizontalAlignment="Left" Margin="27,0,0,0" VerticalAlignment="Center" Height="39" Width="87" IsEnabled="False"/>
+            <Button Grid.Column="1" Content="Consult" HorizontalAlignment="Left" Margin="133,0,0,0" VerticalAlignment="Center" Height="39" Width="87"/>
+        </Grid>
+        <Grid x:Name="detailedCode_Copy1" Margin="0,164,0,250" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Margin="20,12,20,0" TextWrapping="Wrap" Text="Start Time:" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="detailedCode_Copy2" Margin="0,204,0,210" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Margin="20,12,20,6" TextWrapping="Wrap" Text="End Time:" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="detailedCode_Copy3" Margin="0,243,0,170" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Margin="20,11,20,7" TextWrapping="Wrap" Text="Date:" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="detailedCode_Copy4" Margin="0,285,0,129" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Margin="20,10,20,8" TextWrapping="Wrap" Text="Day:" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="detailedCode_Copy5" Margin="0,325,0,90" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Margin="20,10,20,8" TextWrapping="Wrap" Text="Campus:" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="detailedCode_Copy6" Margin="0,364,0,50" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Margin="20,9,20,9" TextWrapping="Wrap" Text="Room No.:" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="detailedCode_Copy7" Margin="0,405,0,9" Background="White" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            <TextBox Margin="20,6,20,12" TextWrapping="Wrap" Text="Staff:" Width="120" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+
+    </Grid>
+</UserControl>
