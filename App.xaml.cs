@@ -18,11 +18,16 @@ namespace KIT206
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : UserControl
+    public partial class App : Application
     {
-        public App()
+        [STAThread]
+        public static void Main()
         {
-            InitializeComponent();
+            var application = new App();
+            application.InitializeComponent();
+            application.Run();
         }
     }
+
+    
 }

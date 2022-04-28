@@ -20,16 +20,11 @@ namespace KIT206
     /// </summary>
     /// 
 
-    public partial class MainWindow : UserControl
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

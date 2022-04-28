@@ -17,16 +17,16 @@
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Margin="20,12,20,6" TextWrapping="Wrap" Text="Unit Code:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="unitCode" Margin="20,12,20,6" TextWrapping="Wrap" Text="Unit Code:" Width="120" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="detailedCode_Copy" Margin="0,115,0,291" Background="White" ShowGridLines="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100*"/>
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
-            <TextBox Margin="20,10,20,8" TextWrapping="Wrap" Text="View:" Width="120" TextChanged="TextBox_TextChanged"/>
-            <Button Grid.Column="1" Content="Tutorial" HorizontalAlignment="Left" Margin="27,0,0,0" VerticalAlignment="Center" Height="39" Width="87" IsEnabled="False"/>
-            <Button Grid.Column="1" Content="Consult" HorizontalAlignment="Left" Margin="133,0,0,0" VerticalAlignment="Center" Height="39" Width="87"/>
+            <TextBox x:Name="viewType" Margin="20,10,20,8" TextWrapping="Wrap" Text="View:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <Button x:Name="btnTutorial" Grid.Column="1" Content="Tutorial" HorizontalAlignment="Left" Margin="27,0,0,0" VerticalAlignment="Center" Height="39" Width="87" IsEnabled="False"/>
+            <Button x:Name="btnConsult" Grid.Column="1" Content="Consult" HorizontalAlignment="Left" Margin="133,0,0,0" VerticalAlignment="Center" Height="39" Width="87" Click="Button_Click_1"/>
         </Grid>
         <Grid x:Name="detailedCode_Copy1" Margin="0,164,0,250" Background="White" ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -34,7 +34,7 @@
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Margin="20,12,20,0" TextWrapping="Wrap" Text="Start Time:" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="startTime" Margin="20,12,20,0" TextWrapping="Wrap" Text="Start Time:" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="detailedCode_Copy2" Margin="0,204,0,210" Background="White" ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -42,7 +42,7 @@
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Margin="20,12,20,6" TextWrapping="Wrap" Text="End Time:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="endTime" Margin="20,12,20,6" TextWrapping="Wrap" Text="End Time:" Width="120" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="detailedCode_Copy3" Margin="0,243,0,170" Background="White" ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -50,7 +50,7 @@
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Margin="20,11,20,7" TextWrapping="Wrap" Text="Date:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="date" Margin="20,11,20,7" TextWrapping="Wrap" Text="Date:" Width="120" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="detailedCode_Copy4" Margin="0,285,0,129" Background="White" ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -58,7 +58,7 @@
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Margin="20,10,20,8" TextWrapping="Wrap" Text="Day:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="day" Margin="20,10,20,8" TextWrapping="Wrap" Text="Day:" Width="120" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="detailedCode_Copy5" Margin="0,325,0,90" Background="White" ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -66,7 +66,7 @@
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Margin="20,10,20,8" TextWrapping="Wrap" Text="Campus:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="campus" Margin="20,10,20,8" TextWrapping="Wrap" Text="Campus:" Width="120" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="detailedCode_Copy6" Margin="0,364,0,50" Background="White" ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -74,7 +74,7 @@
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Margin="20,9,20,9" TextWrapping="Wrap" Text="Room No.:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="roomNo" Margin="20,9,20,9" TextWrapping="Wrap" Text="Room No.:" Width="120" TextChanged="TextBox_TextChanged"/>
         </Grid>
         <Grid x:Name="detailedCode_Copy7" Margin="0,405,0,9" Background="White" ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -82,7 +82,7 @@
                 <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=1}" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-            <TextBox Margin="20,6,20,12" TextWrapping="Wrap" Text="Staff:" Width="120" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="staff" Margin="20,6,20,12" TextWrapping="Wrap" Text="Staff:" Width="120" TextChanged="TextBox_TextChanged"/>
         </Grid>
 
     </Grid>

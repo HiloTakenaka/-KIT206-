@@ -42,8 +42,9 @@ namespace assign2
          * !!PROGRAM WILL NOT RUN IF ADDDATA TEST COMMAND IS ADDING A PRE-EXISTING UNIT!!
          */
 
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
+            
             Console.WriteLine("testing has begun");
 
             MySqlConnection conn = GetConnection();
@@ -57,6 +58,7 @@ namespace assign2
             Console.WriteLine("Names read into a DataSet (should be the same as above):");
             ReadIntoDataSet();
             Console.ReadLine();
+            
         }
 
         /*
@@ -112,7 +114,7 @@ namespace assign2
                 conn.Open();
 
                 // 1. Instantiate a new command with a query and connection
-                MySqlCommand cmd = new MySqlCommand("insert into unit(code, title, coordinator) values ('KIT111', 'Networking','123465')", conn);
+                MySqlCommand cmd = new MySqlCommand("insert into unit(code, title, coordinator) values ('KIT421', 'SomeStuff','123456')", conn);
 
                 // 2. Call Execute reader to get query results
                 cmd.ExecuteNonQuery();
