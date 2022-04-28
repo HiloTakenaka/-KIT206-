@@ -42,7 +42,7 @@ namespace assign2
          * !!PROGRAM WILL NOT RUN IF ADDDATA TEST COMMAND IS ADDING A PRE-EXISTING UNIT!!
          */
 
-        /*static void Main(string[] args)
+        /*static void Main(string[] args) //for testing
         {
             
             Console.WriteLine("testing has begun");

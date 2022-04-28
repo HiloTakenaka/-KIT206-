@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KIT206.UnitsWindow"
+﻿<Window x:Class="KIT206.UnitsWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,4 +25,4 @@
             <ListBox x:Name="taughtList" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Margin="266,34,0,0" VerticalAlignment="Stretch" Grid.Column="1"/>
         </Grid>
     </Grid>
-</UserControl>
+</Window>

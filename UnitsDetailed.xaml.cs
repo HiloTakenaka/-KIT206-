@@ -20,7 +20,7 @@ namespace KIT206
     /// </summary>
     /// 
 
-    public partial class UnitsDetailed : UserControl
+    public partial class UnitsDetailed : Window
     {
         public UnitsDetailed()
         {
