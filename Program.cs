@@ -293,21 +293,5 @@ namespace assign2
             }
             return count;
         }
-
-        /*
-         * Target unit and change it's coordinator
-         */
-        /*public void changeUnitCoord(int id, Unit x)
-	{
-
-            //conn.open;
-
-            bool has = db.Any(Staff=>Staff.id == id);
-            if (has == true)
-	    {
-                Console.WriteLine("!!ID MATCH!!");
-                //command.Commandtext
-            }
-        }*/
     }
 }

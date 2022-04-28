@@ -34,7 +34,9 @@ namespace KIT206
 
         private void Button_Click_Home(object sender, RoutedEventArgs e)
         {
-            
+            var home = new MainWindow();
+            home.InitializeComponent();
+            home.Show();
         }
 
         private void Button_Click_Units(object sender, RoutedEventArgs e)

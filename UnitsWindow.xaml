@@ -9,8 +9,8 @@
     <Grid x:Name="MainGrid" Background="#FFDADADA">
         <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="143" Margin="10,14,0,0" FontSize="18"><Run Language="en-au" Text="HRIS Database"/><LineBreak/><Run Language="en-au"/></TextBlock>
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="540,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click_Home" Visibility="Visible"/>
-        <Button x:Name="Units" Content="Units" HorizontalAlignment="Left" Margin="625,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click" IsEnabled="False"/>
-        <Button x:Name="Staff" Content="Staff" HorizontalAlignment="Left" Margin="710,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click"/>
+        <Button x:Name="Units" Content="Units" HorizontalAlignment="Left" Margin="625,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click_Units" IsEnabled="False"/>
+        <Button x:Name="Staff" Content="Staff" HorizontalAlignment="Left" Margin="710,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click_Staff"/>
         <Grid x:Name="HomeGrid" Margin="0,63,0,0" Background="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="133*"/>

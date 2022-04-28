@@ -27,14 +27,23 @@ namespace KIT206
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Staff(object sender, RoutedEventArgs e)
         {
-
+            StaffWindow staffWin = new StaffWindow();
+            staffWin.InitializeComponent(); 
+            staffWin.Show();
         }
 
         private void Button_Click_Home(object sender, RoutedEventArgs e)
         {
-            
+            MainWindow window = new MainWindow();
+            window.InitializeComponent();
+            window.Show();
+        }
+
+        private void Button_Click_Units(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
