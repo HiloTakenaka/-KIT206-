@@ -18,7 +18,7 @@ namespace assign2
         public string Room { get; set; } 
         public Staff Staff { get; set; } // Staff Class / foreign key
 
-        // methods for turning enum values into strings
+        // methods below are for turning enum values into strings
 
         public string TypeString()
         {
