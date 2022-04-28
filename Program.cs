@@ -28,7 +28,7 @@ namespace assign2
         {
             if (conn == null)
 	        {
-                /*
+            /*
              * Create the connection object (does not actually make the connection yet)
              * Note that the RAP case study database has the same values for its name, user name and password (to keep things simple)
              */
