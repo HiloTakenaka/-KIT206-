@@ -161,7 +161,8 @@ namespace assign2
         }
 
 	    /*
-	    public void addConsultation{
+	    public void addConsultation
+	    {
 		        
 			Staff staffCheck;
 			Day consulDay;
@@ -185,8 +186,9 @@ namespace assign2
 			consulStart = Console.ReadLine();
 			Console.WriteLine("Please Enter the end hour of the consultation");
 			consulEnd = Console.ReadLine();
-			if (classStartHour > consulEnd || classEndHour < consulStart){
-			(Add Consultation)
+			if (classStartHour > consulEnd || classEndHour < consulStart)
+			{
+				(Add Consultation)
 			}
 		}
 	    
@@ -226,12 +228,14 @@ namespace assign2
         /*
          * Target unit and change it's coordinator
          */
-        /*public void changeUnitCoord(int id, Unit x){
+        /*public void changeUnitCoord(int id, Unit x)
+	{
 
             //conn.open;
 
             bool has = db.Any(Staff=>Staff.id == id);
-            if (has == true){
+            if (has == true)
+	    {
                 Console.WriteLine("!!ID MATCH!!");
                 //command.Commandtext
             }
