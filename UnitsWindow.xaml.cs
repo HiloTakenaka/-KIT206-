@@ -31,5 +31,10 @@ namespace KIT206
         {
 
         }
+
+        private void Button_Click_Home(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

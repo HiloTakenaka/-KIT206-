@@ -27,6 +27,14 @@ namespace KIT206
             InitializeComponent();
         }
 
+        private void Button_Click_Units(object sender, RoutedEventArgs e)
+        {
+            var unitWindow = new UnitsWindow();
+            unitWindow.InitializeComponent();
+            unitWindow.Show();
+            
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
