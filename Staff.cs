@@ -32,7 +32,7 @@ public enum Category { Academic, Technical, Admin, Casual }
             return String.Format("{0} {1}", FamilyName, GivenName);
         }
 
-        // methods for turning enum values into strings
+        // methods below are for turning enum values into strings
 
         public string TitleString()
         {
