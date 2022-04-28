@@ -163,6 +163,22 @@ namespace assign2
         }
 
 	    /*
+	    	    public void addUnit{
+		        
+			Staff staffCheck;
+			string addCode;
+			string addTitle;
+			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
+			addCmd = MySqlCommand("insert into Unit(UnitCode, UnitTitle, UnitCoordinator) values (addTitle, addCode, selectStaff)", conn);
+			Console.WriteLine("Please Enter the Staff member who coordinates this unit");
+			staffCheck = Console.ReadLine();
+			selectStaff.ExecuteScalar();
+			Console.WriteLine("Please Enter the Unit Code");
+			addCode = Console.ReadLine();
+			Console.WriteLine("Please Enter the Unit Name");
+			unitTitle = Console.ReadLine();
+			addcmd.ExecuteScalar();
+		}
 	    	    public void addConsultation{
 		        
 			Staff staffCheck;
@@ -172,7 +188,7 @@ namespace assign2
 			int consulStart = 0;
 			int consulEnd = 0;
 			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
-			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
+			selectDay = MySqlCommand(@"SELECT Day FROM UnitClass WHERE Staff = selectStaff");
 			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
 			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
 			addCmd = MySqlCommand("insert into consultation(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
@@ -198,33 +214,31 @@ namespace assign2
 	    public void addClass{
 		        
 			Staff staffCheck;
+			Unit unitAdd;
 			Day classDay;
-			int staffStart = 0;
-			int staffEnd = 0;
+			string addRoom;
+			ClassType typeAdd;
 			int classStart = 0;
 			int classEnd = 0;
-			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
-			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
-			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			addCmd = MySqlCommand("insert into unitClass(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
-			Console.WriteLine("Please Enter the Staff member you wish to consult");
+			Campus campusName;
+			selectStaff = MySqlCommand(@"SELECT Staff FROM Staff WHERE Staff = staffCheck");
+			addCmd = MySqlCommand("insert into unitClass(Unit, Campus, Day, StartTime, EndTime, Type, Room, Staff) values (unitAdd, campusName, classDay, classStart, classEnd, typeAdd, addRoom, selectStaff)", conn);
+			Console.WriteLine("Please Enter the Staff member who will lead the class");
 			staffCheck = Console.ReadLine();
 			selectStaff.ExecuteScalar();
-			Console.WriteLine("Please Enter the Day of consultation");
-			consulDay = Console.ReadLine();
-			selectDay.ExecuteScalar();
-			classStartHour.ExecuteScalar();
-			classEndHour.ExecuteScalar();
-			Console.WriteLine("Please Enter the starting hour of the consultation");
-			consulStart = Console.ReadLine();
-			Console.WriteLine("Please Enter the end hour of the consultation");
-			consulEnd = Console.ReadLine();
-			if (classStartHour > classEnd || classEndHour < classStart){
-				addcmd.ExecuteScalar();
-			} else{
-				Console.WriteLine("Error: Please Enter Valid Times");
-			}
+			Console.WriteLine("Please Enter the Day of class");
+			classDay = Console.ReadLine();
+			Console.WriteLine("Please Enter the starting hour of the class");
+			classStart = Console.ReadLine();
+			Console.WriteLine("Please Enter the end hour of the class");
+			classEnd = Console.ReadLine();
+			Console.WriteLine("Please Enter the room of the class");
+			addRoom = Console.ReadLine();
+			Console.WriteLine("Please Enter the campus of the class");
+			campusName = Console.ReadLine();
+			Console.WriteLine("Please Enter the class type of the class");
+			typeAdd = Console.ReadLine();
+			addcmd.ExecuteScalar();
 		}
                 public void addStaff{
 		        
@@ -238,28 +252,29 @@ namespace assign2
 			string inputphoto;
 			string inputCategory;
 			string inputCampus;
-			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
-			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
-			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			addCmd = MySqlCommand("insert into unitClass(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
-			Console.WriteLine("Please Enter the Staff member you wish to consult");
-			staffCheck = Console.ReadLine();
-			selectStaff.ExecuteScalar();
-			Console.WriteLine("Please Enter the Day of consultation");
+			addCmd = MySqlCommand("insert into unitClass(ID, Title, GivenName, FamilyName, Campus, Email, PhoneNumber, RoomNumber, Photo, Category) values (inputID, inputTitle, inputGivenName, inputSurname, inputEmail, inputPhone, , consulEnd)", conn);
+			Console.WriteLine("Please Enter the Staff ID");
 			consulDay = Console.ReadLine();
-			selectDay.ExecuteScalar();
-			classStartHour.ExecuteScalar();
-			classEndHour.ExecuteScalar();
-			Console.WriteLine("Please Enter the starting hour of the consultation");
-			consulStart = Console.ReadLine();
-			Console.WriteLine("Please Enter the end hour of the consultation");
-			consulEnd = Console.ReadLine();
-			if (classStartHour > classEnd || classEndHour < classStart){
+			Console.WriteLine("Please Enter the Staff title");
+			inputTitle = Console.ReadLine();
+			Console.WriteLine("Please Enter the Staff member's first name");
+			inputGivenName = Console.ReadLine();
+			Console.WriteLine("Please Enter the Staff member's surname");
+			inputSurname = Console.ReadLine();
+			Console.WriteLine("Please Enter the Staff email");
+			inputEmail = Console.ReadLine();
+			Console.WriteLine("Please Enter the Staff phone");
+			inputPhone = Console.ReadLine();
+			Console.WriteLine("Please Enter the Staff room code");
+			inputRoom = Console.ReadLine();
+			Console.WriteLine("Please Enter the Staff photo");
+			inputphoto = Console.ReadLine();
+			Console.WriteLine("Please Enter the teacher category");
+			inputCategory = Console.ReadLine();
+			Console.WriteLine("Please Enter the campus");
+			inputCampus = Console.ReadLine();
 				addcmd.ExecuteScalar();
-			} else{
-				Console.WriteLine("Error: Please Enter Valid Times");
-			}
+		
 		}
 	    
 	    */
