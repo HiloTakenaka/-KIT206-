@@ -161,8 +161,7 @@ namespace assign2
         }
 
 	    /*
-	    public void addConsultation
-	    {
+	    	    public void addConsultation{
 		        
 			Staff staffCheck;
 			Day consulDay;
@@ -172,8 +171,9 @@ namespace assign2
 			int consulEnd = 0;
 			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
 			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
-			classStartHour = MySqlCommand(@"SELECT startHour FROM table_name WHERE Staff = selectStaff AND Day = selectDay");
-			classEndHour = MySqlCommand(@"SELECT Staff FROM table_name WHERE Staff = selectStaff AND Day = selectDay");
+			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
+			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
+			addCmd = MySqlCommand("insert into consultation(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
 			Console.WriteLine("Please Enter the Staff member you wish to consult");
 			staffCheck = Console.ReadLine();
 			selectStaff.ExecuteScalar();
@@ -186,12 +186,79 @@ namespace assign2
 			consulStart = Console.ReadLine();
 			Console.WriteLine("Please Enter the end hour of the consultation");
 			consulEnd = Console.ReadLine();
-			if (classStartHour > consulEnd || classEndHour < consulStart)
-			{
-				(Add Consultation)
+			if (classStartHour > consulEnd || classEndHour < consulStart){
+				addcmd.ExecuteScalar();
+			} else{
+				Console.WriteLine("Error: Please Enter Valid Times");
 			}
 		}
 	    
+	    public void addClass{
+		        
+			Staff staffCheck;
+			Day classDay;
+			int staffStart = 0;
+			int staffEnd = 0;
+			int classStart = 0;
+			int classEnd = 0;
+			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
+			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
+			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
+			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
+			addCmd = MySqlCommand("insert into unitClass(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
+			Console.WriteLine("Please Enter the Staff member you wish to consult");
+			staffCheck = Console.ReadLine();
+			selectStaff.ExecuteScalar();
+			Console.WriteLine("Please Enter the Day of consultation");
+			consulDay = Console.ReadLine();
+			selectDay.ExecuteScalar();
+			classStartHour.ExecuteScalar();
+			classEndHour.ExecuteScalar();
+			Console.WriteLine("Please Enter the starting hour of the consultation");
+			consulStart = Console.ReadLine();
+			Console.WriteLine("Please Enter the end hour of the consultation");
+			consulEnd = Console.ReadLine();
+			if (classStartHour > classEnd || classEndHour < classStart){
+				addcmd.ExecuteScalar();
+			} else{
+				Console.WriteLine("Error: Please Enter Valid Times");
+			}
+		}
+                public void addStaff{
+		        
+			int inputID;
+			Title inputTitle;
+			string inputGivenName;
+			string inputSurname;
+			string inputEmail;
+			string inputPhone;
+			string inputRoom;
+			string inputphoto;
+			string inputCategory;
+			string inputCampus;
+			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
+			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
+			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
+			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
+			addCmd = MySqlCommand("insert into unitClass(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
+			Console.WriteLine("Please Enter the Staff member you wish to consult");
+			staffCheck = Console.ReadLine();
+			selectStaff.ExecuteScalar();
+			Console.WriteLine("Please Enter the Day of consultation");
+			consulDay = Console.ReadLine();
+			selectDay.ExecuteScalar();
+			classStartHour.ExecuteScalar();
+			classEndHour.ExecuteScalar();
+			Console.WriteLine("Please Enter the starting hour of the consultation");
+			consulStart = Console.ReadLine();
+			Console.WriteLine("Please Enter the end hour of the consultation");
+			consulEnd = Console.ReadLine();
+			if (classStartHour > classEnd || classEndHour < classStart){
+				addcmd.ExecuteScalar();
+			} else{
+				Console.WriteLine("Error: Please Enter Valid Times");
+			}
+		}
 	    
 	    */
 
