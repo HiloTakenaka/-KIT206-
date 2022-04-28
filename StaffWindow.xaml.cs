@@ -20,19 +20,11 @@ namespace KIT206
     /// </summary>
     /// 
 
-    public partial class MainWindow : Window
+    public partial class StaffWindow : Window
     {
-        public MainWindow()
+        public StaffWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click_Units(object sender, RoutedEventArgs e)
-        {
-            var unitWindow = new UnitsWindow();
-            unitWindow.InitializeComponent();
-            unitWindow.Show();
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,11 +32,16 @@ namespace KIT206
 
         }
 
-        private void Button_Click_Staff(object sender, RoutedEventArgs e)
+        private void Button_Click_Home(object sender, RoutedEventArgs e)
         {
-            var staffWindow = new StaffWindow();
-            staffWindow.InitializeComponent();
-            staffWindow.Show();
+            
+        }
+
+        private void Button_Click_Units(object sender, RoutedEventArgs e)
+        {
+            var unitWindow = new UnitsWindow();
+            unitWindow.InitializeComponent();
+            unitWindow.Show();
         }
     }
 }

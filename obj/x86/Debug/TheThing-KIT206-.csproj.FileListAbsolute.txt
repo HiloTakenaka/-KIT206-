@@ -42,3 +42,5 @@ C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\UnitsWin
 C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\ClassDetailed.baml
 C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\UnitsDetailed.baml
 C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\UnitsWindow.baml
+C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\StaffWindow.g.cs
+C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Debug\StaffWindow.baml

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KIT206"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             Title="ClassDetailed" Height="450" Width="850">
     <Grid x:Name="MainGrid" Background="#FFDADADA">
         <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="143" Margin="10,14,0,0" FontSize="18"><Run Language="en-au" Text="HRIS Database"/><LineBreak/><Run Language="en-au"/></TextBlock>
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="540,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click" Visibility="Visible"/>
