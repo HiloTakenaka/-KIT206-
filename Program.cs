@@ -179,67 +179,162 @@ namespace assign2
 			unitTitle = Console.ReadLine();
 			addcmd.ExecuteScalar();
 		}
-	    	    public void addConsultation{
-		        
-			Staff staffCheck;
-			Day consulDay;
-			int staffStart = 0;
-			int staffEnd = 0;
-			int consulStart = 0;
-			int consulEnd = 0;
-			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
-			selectDay = MySqlCommand(@"SELECT Day FROM UnitClass WHERE Staff = selectStaff");
-			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			addCmd = MySqlCommand("insert into consultation(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
-			Console.WriteLine("Please Enter the Staff member you wish to consult");
-			staffCheck = Console.ReadLine();
-			selectStaff.ExecuteScalar();
-			Console.WriteLine("Please Enter the Day of consultation");
-			consulDay = Console.ReadLine();
-			selectDay.ExecuteScalar();
-			classStartHour.ExecuteScalar();
-			classEndHour.ExecuteScalar();
-			Console.WriteLine("Please Enter the starting hour of the consultation");
-			consulStart = Console.ReadLine();
-			Console.WriteLine("Please Enter the end hour of the consultation");
-			consulEnd = Console.ReadLine();
-			if (classStartHour > consulEnd || classEndHour < consulStart){
-				addcmd.ExecuteScalar();
-			} else{
-				Console.WriteLine("Error: Please Enter Valid Times");
+public class ClassData
+{
+    public Unit UnitCode { get; set; }
+    public Campus campus{ get; set; }
+    public Day day { get; set; }
+    public int startTime{ get; set; }
+    public int endTime{ get; set; }
+    public Type type{ get; set; }
+    public string room{ get; set; }
+    public Staff staff{ get; set; }
+
+    public ClassData(Unit chosenUnit, Campus chosenCampus, Day chosenDay, int chosenStart, int chosenEnd, Type chosenType, string chosenRoom, Staff chosenStaff)
+    {
+        UnitCode = chosenUnit;
+	campus = ChosenCampus;
+	day = chosenDay;
+        startTime = chosenStart;
+	endTime = chosenEnd;
+	type = chosenType;
+	room = chosenRoom;
+	staff = chosenStaff;
+
+    }
+}
+
+public void classRead()
+{
+    var list = new List<ClassData>();
+    string unitName;
+    string staffSelect;
+    string desiredDay;
+    int desiredStart;
+    int desiredEnd;
+    string addRoom;
+    string campusName;
+    string typeAdd;
+    bool runthrough = true;
+
+    try
+    {
+        var classDataSet = new DataSet();
+        var classAdapter = new MySqlDataAdapter("select * from Staff", conn);
+        groupAdapter.Fill(groupDataSet, "Staff");
+        Console.WriteLine("Please Enter the unitName");
+	unitName = Console.ReadLine();
+	Console.WriteLine("Please Enter the Staff member who will lead the class");
+	staffSelect = Console.ReadLine();
+        selectStaff.ExecuteScalar();
+	Console.WriteLine("Please Enter the Day of class");
+	desiredDay = Console.ReadLine();
+	Console.WriteLine("Please Enter the starting hour of the class");
+	desiredStart = Console.ReadLine();
+	Console.WriteLine("Please Enter the end hour of the class");
+	desiredEnd = Console.ReadLine();
+	Console.WriteLine("Please Enter the room of the class");
+	addRoom = Console.ReadLine();
+	Console.WriteLine("Please Enter the campus of the class");
+	campusName = Console.ReadLine();
+	Console.WriteLine("Please Enter the class type of the class");
+	typeAdd = Console.ReadLine();
+
+        foreach (DataRow row in groupDataSet.Tables["Staff"].Rows)
+        {
+            //Again illustrating that indexer (based on column name) gives access to whatever data
+            //type was obtained from a given column, but can call ToString() on an entry if needed.
+            if (row["Staff"] == staffSelect){
+	    var finalStaff = staffSelect;
+	    if (runthrough == true){
+            list.Add(new ClassData(unitName, campusName, desiredDay, desiredStart, desiredEnd, typeAdd, addRoom, finalStaff));
+	    runthrough = false;
+	}
+	}
+
+        }
+    }
+    finally
+    {
+        // Close the connection
+        if (conn != null)
+        {
+            conn.Close();
+        }
+    }
+
+}
+
+
+public class consultationTest
+{
+    public Staff staffCheck { get; set; }
+    public Day consulDay { get; set; }
+    public int staffStart = 0 { get; set; }
+    public int staffEnd = 0 { get; set; }
+
+    public consultationTest(Staff staff, Day day, int start, int end)
+    {
+        staffCheck = staff;
+        consulDay = day;
+	staffStart = start;
+	staffEnd = end;
+    }
+}
+
+public void consultationRead()
+{
+    var list = new List<consultationTest>();
+    string staffSelect;
+    string desiredDay;
+    int desiredStart;
+    int desiredEnd;
+    bool runthrough = true;
+
+    try
+    {
+        var consulDataSet = new DataSet();
+        var consulAdapter = new MySqlDataAdapter("select * from unitClass", conn);
+        groupAdapter.Fill(groupDataSet, "unitClass");
+	Console.WriteLine("Please Enter the Staff member you wish to consult");
+	staffSelect = Console.ReadLine();
+	Console.WriteLine("Please Enter the desired Day");
+	desiredDay = Console.ReadLine();
+	Console.WriteLine("Please Enter the consultation start Hour");
+	desiredStart = Console.ReadLine();
+        Console.WriteLine("Please Enter the consultation end Hour");
+	desiredEnd = Console.ReadLine(); 
+	
+        foreach (DataRow row in consulDataSet.Tables["unitClass"].Rows)
+        {
+            if (row["Staff"] == staffSelect){
+            //Again illustrating that indexer (based on column name) gives access to whatever data
+            //type was obtained from a given column, but can call ToString() on an entry if needed.
+            var finalStaff = row["Staff"];
+            var finalDay = desiredDay;
+		if (row[Day] == desiredDay && (row["StartHour"] < desiredEnd || row["EndHour"] > desiredStart)){
+			Console.WriteLine("Please Enter Valid Hours");
+                } else{
+			var finalStart = desiredStart;
+            		var finalEnd = desiredEnd;
+			if (runthrough == true){
+				list.Add(new consultationTest(finalStaff, finalDay, finalStart, finalEnd));
+				runthrough = false;
 			}
-		}
-	    
-	    public void addClass{
-		        
-			Staff staffCheck;
-			Unit unitAdd;
-			Day classDay;
-			string addRoom;
-			ClassType typeAdd;
-			int classStart = 0;
-			int classEnd = 0;
-			Campus campusName;
-			selectStaff = MySqlCommand(@"SELECT Staff FROM Staff WHERE Staff = staffCheck");
-			addCmd = MySqlCommand("insert into unitClass(Unit, Campus, Day, StartTime, EndTime, Type, Room, Staff) values (unitAdd, campusName, classDay, classStart, classEnd, typeAdd, addRoom, selectStaff)", conn);
-			Console.WriteLine("Please Enter the Staff member who will lead the class");
-			staffCheck = Console.ReadLine();
-			selectStaff.ExecuteScalar();
-			Console.WriteLine("Please Enter the Day of class");
-			classDay = Console.ReadLine();
-			Console.WriteLine("Please Enter the starting hour of the class");
-			classStart = Console.ReadLine();
-			Console.WriteLine("Please Enter the end hour of the class");
-			classEnd = Console.ReadLine();
-			Console.WriteLine("Please Enter the room of the class");
-			addRoom = Console.ReadLine();
-			Console.WriteLine("Please Enter the campus of the class");
-			campusName = Console.ReadLine();
-			Console.WriteLine("Please Enter the class type of the class");
-			typeAdd = Console.ReadLine();
-			addcmd.ExecuteScalar();
-		}
+                }
+            }
+	}
+        }
+    }
+    finally
+    {
+        // Close the connection
+        if (conn != null)
+        {
+            conn.Close();
+        }
+    }
+}
                 public void addStaff{
 		        
 			int inputID;
