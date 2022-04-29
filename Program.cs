@@ -207,104 +207,55 @@ namespace KIT206
         }
 
         /*
-	    	    public void addConsultation{
-		        
-			Staff staffCheck;
-			Day consulDay;
-			int staffStart = 0;
-			int staffEnd = 0;
-			int consulStart = 0;
-			int consulEnd = 0;
-			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
-			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
-			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			addCmd = MySqlCommand("insert into consultation(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
-			Console.WriteLine("Please Enter the Staff member you wish to consult");
-			staffCheck = Console.ReadLine();
-			selectStaff.ExecuteScalar();
-			Console.WriteLine("Please Enter the Day of consultation");
-			consulDay = Console.ReadLine();
-			selectDay.ExecuteScalar();
-			classStartHour.ExecuteScalar();
-			classEndHour.ExecuteScalar();
-			Console.WriteLine("Please Enter the starting hour of the consultation");
-			consulStart = Console.ReadLine();
-			Console.WriteLine("Please Enter the end hour of the consultation");
-			consulEnd = Console.ReadLine();
-			if (classStartHour > consulEnd || classEndHour < consulStart){
-				addcmd.ExecuteScalar();
-			} else{
-				Console.WriteLine("Error: Please Enter Valid Times");
-			}
-		}
-	    
-	    public void addClass{
-		        
-			Staff staffCheck;
-			Day classDay;
-			int staffStart = 0;
-			int staffEnd = 0;
-			int classStart = 0;
-			int classEnd = 0;
-			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
-			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
-			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			addCmd = MySqlCommand("insert into unitClass(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
-			Console.WriteLine("Please Enter the Staff member you wish to consult");
-			staffCheck = Console.ReadLine();
-			selectStaff.ExecuteScalar();
-			Console.WriteLine("Please Enter the Day of consultation");
-			consulDay = Console.ReadLine();
-			selectDay.ExecuteScalar();
-			classStartHour.ExecuteScalar();
-			classEndHour.ExecuteScalar();
-			Console.WriteLine("Please Enter the starting hour of the consultation");
-			consulStart = Console.ReadLine();
-			Console.WriteLine("Please Enter the end hour of the consultation");
-			consulEnd = Console.ReadLine();
-			if (classStartHour > classEnd || classEndHour < classStart){
-				addcmd.ExecuteScalar();
-			} else{
-				Console.WriteLine("Error: Please Enter Valid Times");
-			}
-		}
-                public void addStaff{
-		        
-			int inputID;
-			Title inputTitle;
-			string inputGivenName;
-			string inputSurname;
-			string inputEmail;
-			string inputPhone;
-			string inputRoom;
-			string inputphoto;
-			string inputCategory;
-			string inputCampus;
-			selectStaff = MySqlCommand(@"SELECT Staff FROM UnitClass WHERE Staff = staffCheck");
-			selectDay = MySqlCommand(@"SELECT Day FROM table_name WHERE Staff = selectStaff");
-			classStartHour = MySqlCommand(@"SELECT startHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			classEndHour = MySqlCommand(@"SELECT endHour FROM UnitClass WHERE Staff = selectStaff AND Day = selectDay");
-			addCmd = MySqlCommand("insert into unitClass(Staff, Day, startHour, endHour) values (selectStaff, selectDay,consulStart, consulEnd)", conn);
-			Console.WriteLine("Please Enter the Staff member you wish to consult");
-			staffCheck = Console.ReadLine();
-			selectStaff.ExecuteScalar();
-			Console.WriteLine("Please Enter the Day of consultation");
-			consulDay = Console.ReadLine();
-			selectDay.ExecuteScalar();
-			classStartHour.ExecuteScalar();
-			classEndHour.ExecuteScalar();
-			Console.WriteLine("Please Enter the starting hour of the consultation");
-			consulStart = Console.ReadLine();
-			Console.WriteLine("Please Enter the end hour of the consultation");
-			consulEnd = Console.ReadLine();
-			if (classStartHour > classEnd || classEndHour < classStart){
-				addcmd.ExecuteScalar();
-			} else{
-				Console.WriteLine("Error: Please Enter Valid Times");
-			}
-		}
+public void consultationRead(){
+    var list = new List<consultationTest>();
+    string staffSelect;
+    string desiredDay;
+    int desiredStart;
+    int desiredEnd;
+
+    try
+    {
+        var consulDataSet = new DataSet();
+        var consulAdapter = new MySqlDataAdapter("select * from unitClass", conn);
+        groupAdapter.Fill(groupDataSet, "unitClass");
+    	Console.WriteLine("Please Enter the Staff member you wish to consult");
+    	staffSelect = Console.ReadLine();
+    	Console.WriteLine("Please Enter the desired Day");
+    	desiredDay = Console.ReadLine();
+    	Console.WriteLine("Please Enter the consultation start Hour");
+    	desiredStart = Console.ReadLine();
+        Console.WriteLine("Please Enter the consultation end Hour");
+    	desiredEnd = Console.ReadLine(); 
+
+        foreach (DataRow row in consulDataSet.Tables["unitClass"].Rows)
+        {
+            if (row["Staff"] == staffSelect){
+            //Again illustrating that indexer (based on column name) gives access to whatever data
+            //type was obtained from a given column, but can call ToString() on an entry if needed.
+            var finalStaff = row["Staff"];
+            var finalDay = desiredDay;
+        	if (row[Day] == desiredDay && (row["StartHour"] < desiredEnd || row["EndHour"] > desiredStart)){
+            		Console.WriteLine("Please Enter Valid Hours");
+                } else{
+           	 var finalStart = desiredStart;
+                 var finalEnd = desiredEnd;
+                }
+            }
+    }
+            list.Add(new consultationTest(finalStaff, finalDay, finalStart, finalEnd));
+        }
+    }
+    finally
+    {
+        // Close the connection
+        if (conn != null)
+        {
+            conn.Close();
+        }
+    }
+}
+
 	    
 	    */
 
