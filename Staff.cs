@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace assign2
+namespace KIT206
 {
 	//enum for selecting title
 public enum Title { Mr, Mrs, Ms, Mx, Dr }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace assign2
+namespace KIT206
 {
     class Consultation
     {

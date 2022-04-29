@@ -4,7 +4,7 @@
 exe
 C#
 .cs
-C:\Users\callu\Source\Repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Release\
+C:\Users\callu\source\repos\HiloTakenaka\TheThing-KIT206-\obj\x86\Release\
 KIT206
 none
 false
@@ -13,7 +13,7 @@ TRACE
 6842822420
 
 111432469597
-31-1204749717
+311881120491
 App.xaml;ClassDetailed.xaml;UnitsDetailed.xaml;StaffWindow.xaml;UnitsWindow.xaml;MainWindow.xaml;
 
 True

@@ -1,21 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using MySql.Data.MySqlClient;
 
-namespace assign2
+namespace KIT206
 {
-    class Unit
+    public class Unit
     {
         public string UnitCode { get; set; } // e.g. KIT206
         public string UnitTitle { get; set; } // e.g. Software Design & Development
-        public Staff UnitCoordinator { get; set; } // Staff Class / foreign key
+        public int UnitCoordinator { get; set; } // Staff Class / foreign key
+        private List<UnitClass> units;
+        public List<UnitClass> UnitItems { get { return units; } set { } }
+        private ObservableCollection<UnitClass> viewableUnits;
+        public ObservableCollection<UnitClass> VisibleUnits { get { return viewableUnits; } set { } }
 
         // constructor for returning full unit string
+
+        public Unit()
+        {
+            units = Program.LoadAll();
+            viewableUnits = new ObservableCollection<UnitClass>(units);
+        }
+
+        public ObservableCollection<UnitClass> GetList()
+        {
+            return VisibleUnits; //TODO: For some reason this returns the names of the unitClass objects (KIT206.UnitClass) and not their contents.
+        }
         public override string ToString()
         { 
             return $"{UnitCode} {UnitTitle}";
         }
+
+
     }
 }

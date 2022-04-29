@@ -6,6 +6,13 @@
              xmlns:local="clr-namespace:KIT206"
              mc:Ignorable="d" 
              Title="MainWindow" Height="450" Width="850">
+    <Window.Resources>
+        <local:Unit x:Key="Unit"/>
+        <ObjectDataProvider x:Key="MyList"
+            ObjectInstance="{StaticResource Unit}"
+            MethodName="GetList">
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid x:Name="MainGrid" Background="#FFDADADA">
         <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="143" Margin="10,14,0,0" FontSize="18"><Run Language="en-au" Text="HRIS Database"/><LineBreak/><Run Language="en-au"/></TextBlock>
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="540,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.876,0.325" Height="29" Width="80" Click="Button_Click" Visibility="Visible" IsEnabled="False"/>
@@ -20,7 +27,7 @@
             <TextBlock x:Name="textAllUnits" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="All Units" VerticalAlignment="Top"/>
             <TextBlock x:Name="textAllStaff" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="All Staff" VerticalAlignment="Top" Grid.Column="1"/>
             <TextBlock x:Name="textUnitsTaught" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Units Taught" VerticalAlignment="Top" Grid.Column="2"/>
-            <ListBox x:Name="unitsList" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Margin="0,34,266,0" VerticalAlignment="Stretch"/>
+            <ListBox x:Name="unitsList" ItemsSource="{Binding Source={StaticResource MyList}}" Grid.ColumnSpan="2" Margin="0,34,266,0" VerticalAlignment="Stretch"/>
             <ListBox x:Name="staffList" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Margin="266,34,0,0" VerticalAlignment="Stretch"/>
             <ListBox x:Name="taughtList" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Margin="266,34,0,0" VerticalAlignment="Stretch" Grid.Column="1"/>
         </Grid>

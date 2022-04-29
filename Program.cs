@@ -6,11 +6,15 @@ using System.Text;
 using System.Data;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows;
 
-namespace assign2
+namespace KIT206
 {
     abstract class Program
     {
+
+        private static bool reportingErrors = false;
+
         //Note that ordinarily these would (1) be stored in a settings file and (2) have some basic encryption applied
         private const string db = "hris";
         private const string user = "kit206g8a";
@@ -27,14 +31,14 @@ namespace assign2
         private static MySqlConnection GetConnection()
         {
             if (conn == null)
-	        {
-            /*
-             * Create the connection object (does not actually make the connection yet)
-             * Note that the RAP case study database has the same values for its name, user name and password (to keep things simple)
-             */
-            string connectionString = String.Format("Database={0};Data Source={1};User Id={2};Password={3}", db, server, user, pass);
-            conn = new MySqlConnection(connectionString);
-	        }
+            {
+                /*
+                 * Create the connection object (does not actually make the connection yet)
+                 * Note that the RAP case study database has the same values for its name, user name and password (to keep things simple)
+                 */
+                string connectionString = String.Format("Database={0};Data Source={1};User Id={2};Password={3}", db, server, user, pass);
+                conn = new MySqlConnection(connectionString);
+            }
             return conn;
         }
 
@@ -67,6 +71,7 @@ namespace assign2
         public static void ReadData()
         {
             MySqlDataReader rdr = null;
+            MySqlConnection conn = GetConnection();
 
             try
             {
@@ -162,7 +167,46 @@ namespace assign2
             }
         }
 
-	    /*
+        public static List<UnitClass> LoadAll()
+        {
+            List<UnitClass> units = new List<UnitClass>();
+            MySqlConnection conn = GetConnection();
+            MySqlDataReader rdr = null;
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT unit_code, type, staff FROM class", conn);
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    //Note that in your assignment you will need to inspect the *type* of the
+                    //employee/researcher before deciding which kind of concrete class to create.
+                    units.Add(new UnitClass { UnitCode = rdr.GetString(0), Type = rdr.GetString(1), Staff = rdr.GetInt32(2) });
+                    
+                }
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine("loading staff", e);
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return units;
+        }
+
+        /*
 	    	    public void addConsultation{
 		        
 			Staff staffCheck;

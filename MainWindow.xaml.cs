@@ -22,9 +22,11 @@ namespace KIT206
 
     public partial class MainWindow : Window
     {
+        private Unit unit;
         public MainWindow()
         {
             InitializeComponent();
+            unit = (Unit)FindResource("Unit");
         }
 
         private void Button_Click_Units(object sender, RoutedEventArgs e)
