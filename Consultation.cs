@@ -11,5 +11,10 @@ namespace assign2
         public Day Day { get; set; } // Day enum (in UnitClass Class)
         public int StartTime { get; set; }
         public int EndTime { get; set; }
+
+        public override string ToString()
+        {
+            return "Consultation: " + Day + " " + StartTime + "-" + EndTime;
+        }
     }
 }
