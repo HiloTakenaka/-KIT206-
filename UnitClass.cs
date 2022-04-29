@@ -55,6 +55,10 @@ namespace assign2
                     return "Weekday has not been selected.";
             }
         }
-
+        
+         public override string ToString()
+        {
+            return Staff + Campus + "\n" + Day + "\n" + StartTime + "-" + EndTime + "\n" + Type + "\n" + Room;
+         }
     }
 }
