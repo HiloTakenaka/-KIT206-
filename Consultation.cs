@@ -14,7 +14,7 @@ namespace assign2
 
         public override string ToString()
         {
-            return "Consultation: " + Day + " " + StartTime + "-" + EndTime;
+            return "Consultation: " + Staff + Day + " " + StartTime + "-" + EndTime;
         }
     }
 }
