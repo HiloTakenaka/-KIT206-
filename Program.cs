@@ -207,6 +207,8 @@ namespace KIT206
         }
 
         /*
+	FUNCTIONS:
+	Note, not fully implemented into the program 
 	
 public class staffTest
 {
@@ -283,7 +285,144 @@ public void staffAdd(){
     }
 }
 
+
+
+public class classTest{
+        public string UnitCode { get; set; }
+        public Campus campus { get; set; } 
+        public Day day { get; set; } 
+        public int StartTime { get; set; }
+        public int EndTime { get; set; }
+        public string Type { get; set; } 
+        public string Room { get; set; } 
+        public int Staff { get; set; } 
+
+
+    public unitTest(string finalUnit, Campus finalCampus, Day finalDay, int finalStart, int finalEnd, string finalType, string finalRoom, int finalStaff)
+    {
+        UnitCode = finalUnit;
+        campus = finalCampus;
+	day = finalDay;
+	StartTime = finalStart;
+	EndTime = finalEnd;
+	Type = finalType;
+	Room = finalRoom;
+	Staff = finalStaff;
+    }
+}	
 	
+	
+	
+public void classAdd(){
+    var list = new List<unitTest>();
+    var selectUnit;
+    var selectCampus;
+    var selectDay;
+    var selectStart;
+    var selectEnd;
+    var selectType;
+    var selectRoom;
+    var selectStaff;
+    var checked = false;
+
+    try
+    {
+        var classDataSet = new DataSet();
+        var classAdapter = new MySqlDataAdapter("select * from Unit", conn);
+        classAdapter.Fill(groupDataSet, "Unit");
+    	Console.WriteLine("Please Enter the Unit of the class you're entering");
+    	selectUnit = Console.ReadLine();
+    	Console.WriteLine("Please Enter the desired Campus");
+    	selectCampus = Console.ReadLine();
+	Console.WriteLine("Please Enter the desired Day");
+    	selectDay = Console.ReadLine();
+    	Console.WriteLine("Please Enter the class start Hour");
+    	selectStart = Console.ReadLine();
+        Console.WriteLine("Please Enter the class end Hour");
+    	selectEnd = Console.ReadLine(); 
+	Console.WriteLine("Please Enter the desired class Type");
+    	selectType = Console.ReadLine();
+	Console.WriteLine("Please Enter the desired room");
+    	selectRoom = Console.ReadLine();
+	Console.WriteLine("Please Enter the desired staff member");
+    	selectStaff = Console.ReadLine();
+
+        foreach (DataRow row in consulDataSet.Tables["Unit"].Rows)
+        {
+            if (row["UnitCode"] == selectUnit{
+            var finalUnit = row["UnitCode"];
+        	if (checked == false){
+		 checked = true;
+		 list.Add(new consultationTest(finalUnit, selectCampus, selectDay, selectStart, selectEnd, selectType, selectRoom, selectStaff));
+                }
+            }
+        }
+    }
+    finally
+    {
+        // Close the connection
+        if (conn != null)
+        {
+            conn.Close();
+        }
+    }
+} 
+
+public class unitTest{
+	public string UnitCode { get; set; } 
+        public string UnitTitle { get; set; } 
+        public int UnitCoordinator { get; set; }
+
+
+    public unitTest(string finalUnitCode, string finalUnitTitle, finalUnitCoor)
+    {
+        UnitCode = finalUnitCode;
+        UnitTitle = finalUnitTitle;
+	UnitCoordinator = finalUnitCoor;
+    }
+}	
+	
+	
+	
+public void unitAdd(){
+    var list = new List<unitTest>();
+    var selectUnit;
+    var selectTitle;
+    var selectStaff;
+    var checked = false;
+
+    try
+    {
+        var unitDataSet = new DataSet();
+        var unitAdapter = new MySqlDataAdapter("select * from Staff", conn);
+        unitAdapter.Fill(groupDataSet, "Staff");
+    	Console.WriteLine("Please Enter the Unit code");
+    	selectUnit = Console.ReadLine();
+    	Console.WriteLine("Please Enter the desired unit name");
+    	selectTitle = Console.ReadLine();
+	Console.WriteLine("Please Enter the desired staff member");
+    	selectStaff = Console.ReadLine();
+
+        foreach (DataRow row in consulDataSet.Tables["Staff"].Rows)
+        {
+            if (row["ID"] == selectStaff{
+            var finalStaff = row["ID"];
+        	if (checked == false){
+		 checked = true;
+		 list.Add(new unitTest(selectUnit, selectTitle, finalStaff));
+                }
+            }
+    }
+    finally
+    {
+        // Close the connection
+        if (conn != null)
+        {
+            conn.Close();
+        }
+    }
+} 
+
 public class consultationTest{
     public Staff staff { get; set; }
     public Day day { get; set; }
@@ -313,7 +452,7 @@ public void consultationAdd(){
     {
         var consulDataSet = new DataSet();
         var consulAdapter = new MySqlDataAdapter("select * from unitClass", conn);
-        groupAdapter.Fill(groupDataSet, "unitClass");
+        consulAdapter.Fill(groupDataSet, "unitClass");
     	Console.WriteLine("Please Enter the Staff member you wish to consult");
     	staffSelect = Console.ReadLine();
     	Console.WriteLine("Please Enter the desired Day");
@@ -325,18 +464,16 @@ public void consultationAdd(){
 
         foreach (DataRow row in consulDataSet.Tables["unitClass"].Rows)
         {
-            if (row["Staff"] == staffSelect){
-            //Again illustrating that indexer (based on column name) gives access to whatever data
-            //type was obtained from a given column, but can call ToString() on an entry if needed.
-            var finalStaff = row["Staff"];
-            var finalDay = desiredDay;
+            if (row["ID"] == staffSelect){
+           	 var finalStaff = row["Staff"];
+           	 var finalDay = desiredDay;
         	if (row[Day] == desiredDay && (row["StartHour"] < desiredEnd || row["EndHour"] > desiredStart)){
             		Console.WriteLine("Please Enter Valid Hours");
                 } else if (checked == false){
-           	 var finalStart = desiredStart;
-                 var finalEnd = desiredEnd;
-		 checked = true;
-		 list.Add(new consultationTest(finalStaff, finalDay, finalStart, finalEnd));
+           		 var finalStart = desiredStart;
+             	   	 var finalEnd = desiredEnd;
+			 checked = true;
+			 list.Add(new consultationTest(finalStaff, finalDay, finalStart, finalEnd));
                 }
             }
         }
