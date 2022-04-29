@@ -58,7 +58,7 @@ namespace assign2
         
          public override string ToString()
         {
-            return Staff + Campus + "\n" + Day + "\n" + StartTime + "-" + EndTime + "\n" + Type + "\n" + Room;
+            return Staff + "\n" + Campus + "\n" + Day + "\n" + StartTime + "-" + EndTime + "\n" + Type + "\n" + Room;
          }
     }
 }
