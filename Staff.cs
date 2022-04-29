@@ -26,12 +26,6 @@ public enum Category { Academic, Technical, Admin, Casual }
         public string Photo { get; set; } // string is URL of image
         public Category Category { get; set; }
 
-        // formatted string to display staff name as "Family Name, Given Name"
-        public string DisplayStaffName()
-        {
-            return String.Format("{0} {1}", FamilyName, GivenName);
-        }
-
         // methods below are for turning enum values into strings
 
         public string TitleString()
@@ -81,6 +75,11 @@ public enum Category { Academic, Technical, Admin, Casual }
                 default:
                     return "Invalid staff.";
             }
+        }
+	    
+	public override string ToString()
+        {
+            return GivenName + " " + FamilyName + "(" + Title + ")";
         }
     }
 }
