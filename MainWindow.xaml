@@ -27,7 +27,7 @@
             <TextBlock x:Name="textAllUnits" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="All Units" VerticalAlignment="Top"/>
             <TextBlock x:Name="textAllStaff" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="All Staff" VerticalAlignment="Top" Grid.Column="1"/>
             <TextBlock x:Name="textUnitsTaught" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Units Taught" VerticalAlignment="Top" Grid.Column="2"/>
-            <ListBox x:Name="unitsList" ItemsSource="{Binding Source={StaticResource MyList}}" Grid.ColumnSpan="2" Margin="0,34,266,0" VerticalAlignment="Stretch"/>
+            <ListBox x:Name="unitsList" ItemsSource="{Binding Source={StaticResource MyList}}" Margin="0,34,0,0" HorizontalAlignment="Center"/>
             <ListBox x:Name="staffList" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Margin="266,34,0,0" VerticalAlignment="Stretch"/>
             <ListBox x:Name="taughtList" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Margin="266,34,0,0" VerticalAlignment="Stretch" Grid.Column="1"/>
         </Grid>

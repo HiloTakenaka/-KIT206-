@@ -27,7 +27,7 @@ namespace KIT206
 
         public ObservableCollection<UnitClass> GetList()
         {
-            return VisibleUnits; //TODO: For some reason this returns the names of the unitClass objects (KIT206.UnitClass) and not their contents.
+            return VisibleUnits;
         }
         public override string ToString()
         { 

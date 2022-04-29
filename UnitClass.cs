@@ -55,6 +55,12 @@ namespace KIT206
                     return "Weekday has not been selected.";
             }
         }
+        public override string ToString()
+        {
+            //For the purposes of this week's demonstration this returns only the name
+            return UnitCode;
+        }
+
 
     }
 }
