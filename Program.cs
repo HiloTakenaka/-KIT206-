@@ -208,8 +208,83 @@ namespace KIT206
 
         /*
 	
-public class consultationTest
+public class staffTest
 {
+        public int ID { get; set; }
+        public Title title { get; set; }
+        public string GivenName { get; set; }
+        public string FamilyName { get; set; }
+        public Campus campus { get; set; }
+        public string Email { get; set; } 
+        public string PhoneNumber { get; set; } 
+        public string RoomNumber { get; set; }
+        public string Photo { get; set; } 
+        public Category category { get; set; }
+    public consultationTest(int selectID, Title selectTitle, string selectGiven, string selectSur, Campus selectCampus, string selectEmail, string selectPhone, string selectRoom, string selectPhoto, Category selectCate)
+    {
+        ID = selectID;
+	title = selectTitle;
+	GivenName = selectGiven;
+	FamilyName = selectSur;
+	campus = selectCampus;
+	Email = selectEmail;
+	PhoneNumber = selectPhone;
+	RoomNumber = selectRoom;
+	Photo = selectPhoto;
+	category = selectCate;
+    }
+}	
+	
+	
+	
+public void staffAdd(){
+    var list = new staffTest();
+    var selectID;
+    var selectTitle;
+    var selectGivenName;
+    var selectFamilyName;
+    var selectCampus;
+    var selectEmail;
+    var selectPhoneNumber;
+    var selectRoomNumber;
+    var selectPhoto;
+    var selectCategory;
+    try
+    {
+    	Console.WriteLine("Please Enter the Staff ID");
+    	selectID = Console.ReadLine();
+    	Console.WriteLine("Please Enter the desired Day");
+    	selectTitle = Console.ReadLine();
+    	Console.WriteLine("Please Enter the Staff member's given name");
+    	selectGivenName = Console.ReadLine();
+        Console.WriteLine("Please Enter the Staff member's surname");
+    	selectFamilyName = Console.ReadLine(); 
+	Console.WriteLine("Please Enter the Staff member's campus");
+    	selectCampus = Console.ReadLine(); 
+	Console.WriteLine("Please Enter the Staff member's email");
+    	selectEmail = Console.ReadLine(); 
+	Console.WriteLine("Please Enter the Staff member's phone number");
+    	selectPhoneNumber = Console.ReadLine(); 
+	Console.WriteLine("Please Enter the Staff member's room number");
+    	selectRoomNumber = Console.ReadLine(); 
+	Console.WriteLine("Please Enter the Staff member's photo");
+    	selectPhoto = Console.ReadLine(); 
+	Console.WriteLine("Please Enter the Staff member's category");
+    	selectCategory = Console.ReadLine(); 
+        list.Add(new staffTest(selectID, selectTitle, selectGivenName, selectFamilyName, selectCampus, selectEmail, selectPhoneNumber, selectRoomNumber, selectPhoto, selectCategory));
+    }
+    finally
+    {
+        // Close the connection
+        if (conn != null)
+        {
+            conn.Close();
+        }
+    }
+}
+
+	
+public class consultationTest{
     public Staff staff { get; set; }
     public Day day { get; set; }
     public int startHour { get; set; }
@@ -226,12 +301,13 @@ public class consultationTest
 	
 	
 	
-public void consultationRead(){
+public void consultationAdd(){
     var list = new List<consultationTest>();
     var staffSelect;
     var desiredDay;
     var desiredStart;
     var desiredEnd;
+    var checked = false;
 
     try
     {
@@ -256,13 +332,13 @@ public void consultationRead(){
             var finalDay = desiredDay;
         	if (row[Day] == desiredDay && (row["StartHour"] < desiredEnd || row["EndHour"] > desiredStart)){
             		Console.WriteLine("Please Enter Valid Hours");
-                } else{
+                } else if (checked == false){
            	 var finalStart = desiredStart;
                  var finalEnd = desiredEnd;
+		 checked = true;
+		 list.Add(new consultationTest(finalStaff, finalDay, finalStart, finalEnd));
                 }
             }
-    }
-            list.Add(new consultationTest(finalStaff, finalDay, finalStart, finalEnd));
         }
     }
     finally
@@ -273,11 +349,10 @@ public void consultationRead(){
             conn.Close();
         }
     }
-}
-
-	    
+} 
 	    */
 
+	    
         /*
          * Using the ExecuteScalar method
          * returns number of records
