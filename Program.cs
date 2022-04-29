@@ -207,12 +207,31 @@ namespace KIT206
         }
 
         /*
+	
+public class consultationTest
+{
+    public Staff staff { get; set; }
+    public Day day { get; set; }
+    public int startHour { get; set; }
+    public int endHour { get; set; }
+
+    public consultationTest(Staff inputStaff, Day inputDay, int inputStart, int inputEnd)
+    {
+        staff = inputStaff;
+        day = inputDay;
+	startHour = inputStart;
+	endHour = inputEnd;
+    }
+}	
+	
+	
+	
 public void consultationRead(){
     var list = new List<consultationTest>();
-    string staffSelect;
-    string desiredDay;
-    int desiredStart;
-    int desiredEnd;
+    var staffSelect;
+    var desiredDay;
+    var desiredStart;
+    var desiredEnd;
 
     try
     {
