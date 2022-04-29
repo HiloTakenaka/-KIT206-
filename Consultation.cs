@@ -11,5 +11,10 @@ namespace KIT206
         public Day Day { get; set; } // Day enum (in UnitClass Class)
         public int StartTime { get; set; }
         public int EndTime { get; set; }
+
+        public override string ToString()
+        {
+            return "Consultation: " + Staff + Day + " " + StartTime + "-" + EndTime;
+        }
     }
 }
