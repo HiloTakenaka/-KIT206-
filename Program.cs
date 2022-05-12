@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -184,7 +184,7 @@ namespace KIT206
                     //Note that in your assignment you will need to inspect the *type* of the
                     //employee/researcher before deciding which kind of concrete class to create.
                     units.Add(new UnitClass { UnitCode = rdr.GetString(0), Type = rdr.GetString(1), Staff = rdr.GetInt32(2) });
-                    
+
                 }
             }
             catch (MySqlException e)
@@ -206,308 +206,162 @@ namespace KIT206
             return units;
         }
 
+        /*    
+        FUNCTIONS:
+        Note, not fully implemented into the program 
+        */
         /*
-	FUNCTIONS:
-	Note, not fully implemented into the program 
-	
-public class staffTest
-{
-        public int ID { get; set; }
-        public Title title { get; set; }
-        public string GivenName { get; set; }
-        public string FamilyName { get; set; }
-        public Campus campus { get; set; }
-        public string Email { get; set; } 
-        public string PhoneNumber { get; set; } 
-        public string RoomNumber { get; set; }
-        public string Photo { get; set; } 
-        public Category category { get; set; }
-    public consultationTest(int selectID, Title selectTitle, string selectGiven, string selectSur, Campus selectCampus, string selectEmail, string selectPhone, string selectRoom, string selectPhoto, Category selectCate)
+    public class staffTest
     {
-        ID = selectID;
-	title = selectTitle;
-	GivenName = selectGiven;
-	FamilyName = selectSur;
-	campus = selectCampus;
-	Email = selectEmail;
-	PhoneNumber = selectPhone;
-	RoomNumber = selectRoom;
-	Photo = selectPhoto;
-	category = selectCate;
-    }
-}	
-	
-	
-	
-public void staffAdd(){
-    var list = new staffTest();
-    var selectID;
-    var selectTitle;
-    var selectGivenName;
-    var selectFamilyName;
-    var selectCampus;
-    var selectEmail;
-    var selectPhoneNumber;
-    var selectRoomNumber;
-    var selectPhoto;
-    var selectCategory;
-    try
-    {
-    	Console.WriteLine("Please Enter the Staff ID");
-    	selectID = Console.ReadLine();
-    	Console.WriteLine("Please Enter the desired Day");
-    	selectTitle = Console.ReadLine();
-    	Console.WriteLine("Please Enter the Staff member's given name");
-    	selectGivenName = Console.ReadLine();
-        Console.WriteLine("Please Enter the Staff member's surname");
-    	selectFamilyName = Console.ReadLine(); 
-	Console.WriteLine("Please Enter the Staff member's campus");
-    	selectCampus = Console.ReadLine(); 
-	Console.WriteLine("Please Enter the Staff member's email");
-    	selectEmail = Console.ReadLine(); 
-	Console.WriteLine("Please Enter the Staff member's phone number");
-    	selectPhoneNumber = Console.ReadLine(); 
-	Console.WriteLine("Please Enter the Staff member's room number");
-    	selectRoomNumber = Console.ReadLine(); 
-	Console.WriteLine("Please Enter the Staff member's photo");
-    	selectPhoto = Console.ReadLine(); 
-	Console.WriteLine("Please Enter the Staff member's category");
-    	selectCategory = Console.ReadLine(); 
-        list.Add(new staffTest(selectID, selectTitle, selectGivenName, selectFamilyName, selectCampus, selectEmail, selectPhoneNumber, selectRoomNumber, selectPhoto, selectCategory));
-    }
-    finally
-    {
-        // Close the connection
-        if (conn != null)
+            public int ID { get; set; }
+            public Title title { get; set; }
+            public string GivenName { get; set; }
+            public string FamilyName { get; set; }
+            public Campus campus { get; set; }
+            public string Email { get; set; } 
+            public string PhoneNumber { get; set; } 
+            public string RoomNumber { get; set; }
+            public string Photo { get; set; } 
+            public Category category { get; set; }
+        public consultationTest(int selectID, Title selectTitle, string selectGiven, string selectSur, Campus selectCampus, string selectEmail, string selectPhone, string selectRoom, string selectPhoto, Category selectCate)
         {
-            conn.Close();
+            ID = selectID;
+        title = selectTitle;
+        GivenName = selectGiven;
+        FamilyName = selectSur;
+        campus = selectCampus;
+        Email = selectEmail;
+        PhoneNumber = selectPhone;
+        RoomNumber = selectRoom;
+        Photo = selectPhoto;
+        category = selectCate;
         }
-    }
-}
+    }	
 
 
 
-public class classTest{
-        public string UnitCode { get; set; }
-        public Campus campus { get; set; } 
-        public Day day { get; set; } 
-        public int StartTime { get; set; }
-        public int EndTime { get; set; }
-        public string Type { get; set; } 
-        public string Room { get; set; } 
-        public int Staff { get; set; } 
-
-
-    public unitTest(string finalUnit, Campus finalCampus, Day finalDay, int finalStart, int finalEnd, string finalType, string finalRoom, int finalStaff)
+    public void staffAdd()    
     {
-        UnitCode = finalUnit;
-        campus = finalCampus;
-	day = finalDay;
-	StartTime = finalStart;
-	EndTime = finalEnd;
-	Type = finalType;
-	Room = finalRoom;
-	Staff = finalStaff;
-    }
-}	
-	
-	
-	
-public void classAdd(){
-    var list = new List<unitTest>();
-    var selectUnit;
-    var selectCampus;
-    var selectDay;
-    var selectStart;
-    var selectEnd;
-    var selectType;
-    var selectRoom;
-    var selectStaff;
-    var checked = false;
-
-    try
-    {
-        var classDataSet = new DataSet();
-        var classAdapter = new MySqlDataAdapter("select * from Unit", conn);
-        classAdapter.Fill(groupDataSet, "Unit");
-    	Console.WriteLine("Please Enter the Unit of the class you're entering");
-    	selectUnit = Console.ReadLine();
-    	Console.WriteLine("Please Enter the desired Campus");
-    	selectCampus = Console.ReadLine();
-	Console.WriteLine("Please Enter the desired Day");
-    	selectDay = Console.ReadLine();
-    	Console.WriteLine("Please Enter the class start Hour");
-    	selectStart = Console.ReadLine();
-        Console.WriteLine("Please Enter the class end Hour");
-    	selectEnd = Console.ReadLine(); 
-	Console.WriteLine("Please Enter the desired class Type");
-    	selectType = Console.ReadLine();
-	Console.WriteLine("Please Enter the desired room");
-    	selectRoom = Console.ReadLine();
-	Console.WriteLine("Please Enter the desired staff member");
-    	selectStaff = Console.ReadLine();
-
-        foreach (DataRow row in consulDataSet.Tables["Unit"].Rows)
+        var list = new staffTest();
+        var selectID;
+        var selectTitle;
+        var selectGivenName;
+        var selectFamilyName;
+        var selectCampus;
+        var selectEmail;
+        var selectPhoneNumber;
+        var selectRoomNumber;
+        var selectPhoto;
+        var selectCategory;
+        try
         {
-            if (row["UnitCode"] == selectUnit{
-            var finalUnit = row["UnitCode"];
-        	if (checked == false){
-		 checked = true;
-		 list.Add(new consultationTest(finalUnit, selectCampus, selectDay, selectStart, selectEnd, selectType, selectRoom, selectStaff));
-                }
+            Console.WriteLine("Please Enter the Staff ID");
+            selectID = Console.ReadLine();
+            Console.WriteLine("Please Enter the desired Day");
+            selectTitle = Console.ReadLine();
+            Console.WriteLine("Please Enter the Staff member's given name");
+            selectGivenName = Console.ReadLine();
+            Console.WriteLine("Please Enter the Staff member's surname");
+            selectFamilyName = Console.ReadLine(); 
+        Console.WriteLine("Please Enter the Staff member's campus");
+            selectCampus = Console.ReadLine(); 
+        Console.WriteLine("Please Enter the Staff member's email");
+            selectEmail = Console.ReadLine(); 
+        Console.WriteLine("Please Enter the Staff member's phone number");
+            selectPhoneNumber = Console.ReadLine(); 
+        Console.WriteLine("Please Enter the Staff member's room number");
+            selectRoomNumber = Console.ReadLine(); 
+        Console.WriteLine("Please Enter the Staff member's photo");
+            selectPhoto = Console.ReadLine(); 
+        Console.WriteLine("Please Enter the Staff member's category");
+            selectCategory = Console.ReadLine(); 
+            list.Add(new staffTest(selectID, selectTitle, selectGivenName, selectFamilyName, selectCampus, selectEmail, selectPhoneNumber, selectRoomNumber, selectPhoto, selectCategory));
+        }
+        finally
+        {
+            // Close the connection
+            if (conn != null)
+            {
+                conn.Close();
             }
         }
     }
-    finally
-    {
-        // Close the connection
-        if (conn != null)
+      */
+        public class classTest
         {
-            conn.Close();
-        }
-    }
-} 
+            public string UnitCode { get; set; }
+            public Campus campus { get; set; }
+            public Day day { get; set; }
+            public int StartTime { get; set; }
+            public int EndTime { get; set; }
+            public string Type { get; set; }
+            public string Room { get; set; }
+            public int Staff { get; set; }
 
-public class unitTest{
-	public string UnitCode { get; set; } 
-        public string UnitTitle { get; set; } 
-        public int UnitCoordinator { get; set; }
 
-
-    public unitTest(string finalUnitCode, string finalUnitTitle, finalUnitCoor)
-    {
-        UnitCode = finalUnitCode;
-        UnitTitle = finalUnitTitle;
-	UnitCoordinator = finalUnitCoor;
-    }
-}	
-	
-	
-	
-public void unitAdd(){
-    var list = new List<unitTest>();
-    var selectUnit;
-    var selectTitle;
-    var selectStaff;
-    var checked = false;
-
-    try
-    {
-        var unitDataSet = new DataSet();
-        var unitAdapter = new MySqlDataAdapter("select * from Staff", conn);
-        unitAdapter.Fill(groupDataSet, "Staff");
-    	Console.WriteLine("Please Enter the Unit code");
-    	selectUnit = Console.ReadLine();
-    	Console.WriteLine("Please Enter the desired unit name");
-    	selectTitle = Console.ReadLine();
-	Console.WriteLine("Please Enter the desired staff member");
-    	selectStaff = Console.ReadLine();
-
-        foreach (DataRow row in consulDataSet.Tables["Staff"].Rows)
-        {
-            if (row["ID"] == selectStaff{
-            var finalStaff = row["ID"];
-        	if (checked == false){
-		 checked = true;
-		 list.Add(new unitTest(selectUnit, selectTitle, finalStaff));
-                }
-            }
-    }
-    finally
-    {
-        // Close the connection
-        if (conn != null)
-        {
-            conn.Close();
-        }
-    }
-} 
-
-public class consultationTest{
-    public Staff staff { get; set; }
-    public Day day { get; set; }
-    public int startHour { get; set; }
-    public int endHour { get; set; }
-
-    public consultationTest(Staff inputStaff, Day inputDay, int inputStart, int inputEnd)
-    {
-        staff = inputStaff;
-        day = inputDay;
-	startHour = inputStart;
-	endHour = inputEnd;
-    }
-}	
-	
-	
-	
-public void consultationAdd(){
-    var list = new List<consultationTest>();
-    var staffSelect;
-    var desiredDay;
-    var desiredStart;
-    var desiredEnd;
-    var checked = false;
-
-    try
-    {
-        var consulDataSet = new DataSet();
-        var consulAdapter = new MySqlDataAdapter("select * from unitClass", conn);
-        consulAdapter.Fill(groupDataSet, "unitClass");
-    	Console.WriteLine("Please Enter the Staff member you wish to consult");
-    	staffSelect = Console.ReadLine();
-    	Console.WriteLine("Please Enter the desired Day");
-    	desiredDay = Console.ReadLine();
-    	Console.WriteLine("Please Enter the consultation start Hour");
-    	desiredStart = Console.ReadLine();
-        Console.WriteLine("Please Enter the consultation end Hour");
-    	desiredEnd = Console.ReadLine(); 
-
-        foreach (DataRow row in consulDataSet.Tables["unitClass"].Rows)
-        {
-            if (row["ID"] == staffSelect){
-           	 var finalStaff = row["Staff"];
-           	 var finalDay = desiredDay;
-        	if (row[Day] == desiredDay && (row["StartHour"] < desiredEnd || row["EndHour"] > desiredStart)){
-            		Console.WriteLine("Please Enter Valid Hours");
-                } else if (checked == false){
-           		 var finalStart = desiredStart;
-             	   	 var finalEnd = desiredEnd;
-			 checked = true;
-			 list.Add(new consultationTest(finalStaff, finalDay, finalStart, finalEnd));
-                }
+            public classTest(string finalUnit, Campus finalCampus, Day finalDay, int finalStart, int finalEnd, string finalType, string finalRoom, int finalStaff)
+            {
+                UnitCode = finalUnit;
+                campus = finalCampus;
+                day = finalDay;
+                StartTime = finalStart;
+                EndTime = finalEnd;
+                Type = finalType;
+                Room = finalRoom;
+                Staff = finalStaff;
             }
         }
-    }
-    finally
-    {
-        // Close the connection
-        if (conn != null)
-        {
-            conn.Close();
-        }
-    }
-} 
-	    */
 
-	    
-        /*
-         * Using the ExecuteScalar method
-         * returns number of records
-         */
-        public static int GetNumberOfRecords()
+
+
+        public void classAdd()
         {
-            int count = -1;
+            var list = new List <unitTest>();
+            string selectUnit;
+            Campus selectCampus;
+            Day selectDay;
+            int selectStart;
+            int selectEnd;
+            string selectType;
+            string selectRoom;
+            int selectStaff;
+            checked = false;
+
             try
             {
-                // Open the connection
-                conn.Open();
+                var classDataSet = new DataSet();
+                var classAdapter = new MySqlDataAdapter("select * from Unit", conn);
+                classAdapter.Fill(classDataSet, "Unit");
+                Console.WriteLine("Please Enter the Unit of the class you're entering");
+                selectUnit = Console.ReadLine();
+                Console.WriteLine("Please Enter the desired Campus");
+                selectCampus = Console.ReadLine();
+                Console.WriteLine("Please Enter the desired Day");
+                selectDay = Console.ReadLine();
+                Console.WriteLine("Please Enter the class start Hour");
+                selectStart = Console.ReadLine();
+                Console.WriteLine("Please Enter the class end Hour");
+                selectEnd = Console.ReadLine();
+                Console.WriteLine("Please Enter the desired class Type");
+                selectType = Console.ReadLine();
+                Console.WriteLine("Please Enter the desired room");
+                selectRoom = Console.ReadLine();
+                Console.WriteLine("Please Enter the desired staff member");
+                selectStaff = Console.ReadLine();
 
-                // 1. Instantiate a new command
-                MySqlCommand cmd = new MySqlCommand("select COUNT(*) from unit", conn);
-
-                // 2. Call ExecuteScalar to send command
-                // This convoluted approach is safe since cannot predict actual return type
-                count = int.Parse(cmd.ExecuteScalar().ToString());
+                foreach (DataRow row in classDataSet.Tables["Unit"].Rows)
+                {
+                    if (row["UnitCode"] == selectUnit)
+                    {
+                        var finalUnit = row["UnitCode"];
+                        if (checked == false)
+                            {
+                            checked = true;
+                            list.Add(new classTest(finalUnit, selectCampus, selectDay, selectStart, selectEnd, selectType, selectRoom, selectStaff));
+                            }
+                        }
+                    }
+                }
             }
             finally
             {
@@ -517,7 +371,167 @@ public void consultationAdd(){
                     conn.Close();
                 }
             }
-            return count;
+
+            /*
+        public class unitTest
+        {
+    	public string UnitCode { get; set; } 
+        public string UnitTitle { get; set; } 
+        public int UnitCoordinator { get; set; }
+
+
+            public unitTest(string finalUnitCode, string finalUnitTitle, finalUnitCoor)
+            {
+                UnitCode = finalUnitCode;
+                UnitTitle = finalUnitTitle;
+	        UnitCoordinator = finalUnitCoor;
+            }
+        }	
+	
+	
+	
+        public void unitAdd()
+        {
+        var list = new List<unitTest>();
+        var selectUnit;
+        var selectTitle;
+        var selectStaff;
+        var checked = false;
+
+            try
+            {
+                var unitDataSet = new DataSet();
+                var unitAdapter = new MySqlDataAdapter("select * from Staff", conn);
+                unitAdapter.Fill(groupDataSet, "Staff");
+    	        Console.WriteLine("Please Enter the Unit code");
+    	        selectUnit = Console.ReadLine();
+    	        Console.WriteLine("Please Enter the desired unit name");
+    	        selectTitle = Console.ReadLine();
+	            Console.WriteLine("Please Enter the desired staff member");
+    	        selectStaff = Console.ReadLine();
+
+                foreach (DataRow row in consulDataSet.Tables["Staff"].Rows)
+                {
+                    if (row["ID"] == selectStaff{
+                    var finalStaff = row["ID"];
+        	        if (checked == false)
+                    {
+		             checked = true;
+		             list.Add(new unitTest(selectUnit, selectTitle, finalStaff));
+                    }
+                }
+            }
+            finally
+            {
+                // Close the connection
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        } 
+            
+        public class consultationTest
+        {
+            public Staff staff { get; set; }
+            public Day day { get; set; }
+            public int startHour { get; set; }
+            public int endHour { get; set; }
+
+            public consultationTest(Staff inputStaff, Day inputDay, int inputStart, int inputEnd)
+            {
+                staff = inputStaff;
+                day = inputDay;
+                startHour = inputStart;
+                endHour = inputEnd;
+            }
+        }
+
+
+
+        public void consultationAdd()
+        {
+            var list = new List<consultationTest>();
+            var staffSelect;
+            var desiredDay;
+            var desiredStart;
+            var desiredEnd;
+            var checked = false;
+
+            try
+            {
+                var consulDataSet = new DataSet();
+                var consulAdapter = new MySqlDataAdapter("select * from unitClass", conn);
+                consulAdapter.Fill(groupDataSet, "unitClass");
+                Console.WriteLine("Please Enter the Staff member you wish to consult");
+                staffSelect = Console.ReadLine();
+                Console.WriteLine("Please Enter the desired Day");
+                desiredDay = Console.ReadLine();
+                Console.WriteLine("Please Enter the consultation start Hour");
+                desiredStart = Console.ReadLine();
+                Console.WriteLine("Please Enter the consultation end Hour");
+                desiredEnd = Console.ReadLine();
+
+                foreach (DataRow row in consulDataSet.Tables["unitClass"].Rows)
+                {
+                    if (row["ID"] == staffSelect)
+                    {
+                        var finalStaff = row["Staff"];
+                        var finalDay = desiredDay;
+                        if (row[Day] == desiredDay && (row["StartHour"] < desiredEnd || row["EndHour"] > desiredStart))
+                        {
+                            Console.WriteLine("Please Enter Valid Hours");
+                        } else if (checked == false) {
+                            var finalStart = desiredStart;
+                            var finalEnd = desiredEnd;
+                            checked = true;
+                            list.Add(new consultationTest(finalStaff, finalDay, finalStart, finalEnd));
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                // Close the connection
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+
+
+            /*
+             * Using the ExecuteScalar method
+             * returns number of records
+             */
+            public static int GetNumberOfRecords()
+            {
+                int count = -1;
+                try
+                {
+                    // Open the connection
+                    conn.Open();
+
+                    // 1. Instantiate a new command
+                    MySqlCommand cmd = new MySqlCommand("select COUNT(*) from unit", conn);
+
+                    // 2. Call ExecuteScalar to send command
+                    // This convoluted approach is safe since cannot predict actual return type
+                    count = int.Parse(cmd.ExecuteScalar().ToString());
+                }
+                finally
+                {
+                    // Close the connection
+                    if (conn != null)
+                    {
+                        conn.Close();
+                    }
+                }
+                return count;
+            }
+            }
         }
     }
 }
