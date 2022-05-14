@@ -323,7 +323,7 @@ public static List<staffTest> AddStaff(){
         string selectType;
         string selectRoom;
         int selectStaff;
-        var checked = false;
+        bool checked = false;
 
         try
         {
@@ -350,7 +350,7 @@ public static List<staffTest> AddStaff(){
             foreach (DataRow row in classDataSet.Tables["Unit"].Rows)
             {
                 if (row["UnitCode"] == selectUnit{
-                var finalUnit = row["UnitCode"];
+                String finalUnit = row["UnitCode"];
                 if (checked == false){
              checked = true;
              list.Add(new consultationTest(finalUnit, selectCampus, selectDay, selectStart, selectEnd, selectType, selectRoom, selectStaff));
