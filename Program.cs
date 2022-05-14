@@ -302,19 +302,19 @@ public static List<staffTest> AddStaff(){
         {
             UnitCode = finalUnit;
             campus = finalCampus;
-        day = finalDay;
-        StartTime = finalStart;
-        EndTime = finalEnd;
-        Type = finalType;
-        Room = finalRoom;
-        Staff = finalStaff;
+            day = finalDay;
+            StartTime = finalStart;
+            EndTime = finalEnd;
+            Type = finalType;
+            Room = finalRoom;
+            Staff = finalStaff;
         }
     }	
 
 
 
     public static List<classTest> classAdd(){
-        var list = new List<unitTest>();
+        var list = new List<classTest>();
         String selectUnit;
         Campus selectCampus;
         Day selectDay;
